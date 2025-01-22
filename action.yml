@@ -6,18 +6,18 @@ inputs:
     description: 'Token for Circle-CI'
     required: true
     default: ''
-  circle_ci_job:
-    description: 'Name of the circle-ci-job'
-    required: true
-    default: ''
   circle_ci_project_url:
     description: 'URL for circle-ci project'
     required: true
+    default: ''
+  circle_ci_job_params:
+    description: 'List of params to pass along to circle api. ex: "Param1":"Value1", "Param2":"Value2"'
+    required: false
     default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.circle_ci_token }}
-    - ${{ inputs.circle_ci_job }}
     - ${{ inputs.circle_ci_project_url }}
+    - ${{ inputs.circle_ci_job_params }}
