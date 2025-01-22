@@ -3,8 +3,8 @@
 This action can used to trigger a Circle CI job defined in the ```./circleci/config.yml``` file in your repository. The action needs the below listed 3 parameters.
 
 1. circle_ci_token: The circle ci token to access the circle-ci API.
-2. circle_ci_job: The circle ci job to be run. This is defined under the jobs section in ```./circleci/config.yml``` file in your repository.
-3. circle_ci_project_url: This is URL of the project. In your github action you can pass this by using ${{ github.ref }} as the argument.
+2. circle_ci_project_url: This is URL of the project. In your github action you can pass this by using ${{ github.ref }} as the argument.
+3. circle_ci_job_params: A list of coma separated key-value items to pass along in the request to cirlce CI as parameters. These will be used in your Circle CI YML to decide what workflows to run using filtering (`require`, `when`, `unless`, `filter`, etc.)
 
 An example github workflow file is shown below:
 **Example:** Trigger a build on adding a new label to your pull request.
